@@ -92,7 +92,7 @@ const Project1 = () => {
           <button className='flex items-center gap-3 border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300' onClick={handleClick2}>Employment Type <ChevronDown size={18} /></button>
 
           {open2 &&
-            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-100 h-70 z-10'>
+            <div className='absolute  top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-100 h-70 z-10'>
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>

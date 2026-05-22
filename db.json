@@ -1,0 +1,948 @@
+{
+    "jobs": [
+        {
+            "id": 1,
+            "title": "Frontend Software Engineer",
+            "company": "BrightWave Technologies",
+            "location": "London, UK",
+            "datePosted": "2026-05-20",
+            "levelOfExperience": "entry-level",
+            "employmentType": "full-time",
+            "description": "As a Frontend Software Engineer at BrightWave Technologies, you will be responsible for building responsive, high-performance, and accessible web applications that power our client-facing digital products. You will collaborate closely with designers, backend engineers, and product managers to deliver seamless user experiences using modern JavaScript frameworks and frontend architecture best practices. This role is ideal for engineers who are passionate about UI development, performance optimization, and scalable component-based design systems.",
+            "coreResponsibilities": [
+                "Design, develop, and maintain scalable frontend applications using React and TypeScript with a strong emphasis on performance and maintainability.",
+                "Translate UI/UX designs into fully functional, responsive, and accessible web interfaces across multiple devices and browsers.",
+                "Collaborate with backend engineers to integrate RESTful APIs and ensure smooth data flow between frontend and backend systems.",
+                "Participate in code reviews, providing constructive feedback and ensuring adherence to coding standards and best practices.",
+                "Optimize applications for maximum speed and scalability, including bundle size reduction and rendering efficiency improvements.",
+                "Work closely with product managers and designers to refine user stories and ensure technical feasibility of UI requirements."
+            ],
+            "requiredQualifications": [
+                "Bachelor’s degree in Computer Science, Software Engineering, or a related technical discipline.",
+                "Solid understanding of JavaScript fundamentals, including ES6+ features and asynchronous programming.",
+                "Familiarity with frontend frameworks such as React, Angular, or Vue.js.",
+                "Basic understanding of web performance optimization techniques and responsive design principles.",
+                "Understanding of version control systems such as Git and collaborative development workflows."
+            ],
+            "skillsAndCompetencies": [
+                "Proficiency in React.js and TypeScript for building scalable frontend applications.",
+                "Strong understanding of HTML5, CSS3, and modern UI design principles including Flexbox and Grid.",
+                "Knowledge of REST APIs and JSON data handling.",
+                "Familiarity with build tools such as Webpack, Vite, or similar bundlers.",
+                "Problem-solving skills with attention to detail in UI/UX implementation.",
+                "Ability to work collaboratively in Agile development environments."
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Backend Developer",
+            "company": "NorthBridge Systems",
+            "location": "Manchester, UK",
+            "datePosted": "2026-05-18",
+            "levelOfExperience": "junior",
+            "employmentType": "contract",
+            "description": "As a Backend Developer at NorthBridge Systems, you will be responsible for designing, implementing, and maintaining scalable server-side applications and APIs that support enterprise-grade software systems. You will work on database architecture, cloud integrations, and backend logic that powers critical business operations across multiple platforms.",
+            "coreResponsibilities": [
+                "Develop, test, and maintain RESTful APIs and backend services using Node.js and Express.",
+                "Design and optimize relational and non-relational database schemas for performance and scalability.",
+                "Implement authentication, authorization, and security best practices across backend systems.",
+                "Collaborate with frontend developers to ensure seamless integration between client and server-side components.",
+                "Monitor system performance, debug production issues, and implement corrective fixes.",
+                "Write automated tests to ensure reliability and stability of backend services."
+            ],
+            "requiredQualifications": [
+                "Bachelor’s degree in Computer Science, Information Technology, or equivalent practical experience.",
+                "Understanding of server-side programming concepts and backend architecture.",
+                "Experience with at least one backend programming language such as JavaScript (Node.js), Python, or Java.",
+                "Basic knowledge of database systems such as PostgreSQL, MySQL, or MongoDB.",
+                "Familiarity with RESTful API design principles."
+            ],
+            "skillsAndCompetencies": [
+                "Strong proficiency in Node.js and Express.js framework.",
+                "Database management skills (SQL and NoSQL systems).",
+                "Understanding of authentication systems such as JWT and OAuth.",
+                "Knowledge of cloud platforms such as AWS or Azure (basic level).",
+                "Strong debugging and analytical thinking skills.",
+                "Ability to work in CI/CD-driven development environments."
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Senior Software Engineer",
+            "company": "Skyline Digital Labs",
+            "location": "Birmingham, UK",
+            "datePosted": "2026-05-15",
+            "levelOfExperience": "senior",
+            "employmentType": "full-time",
+            "description": "As a Senior Software Engineer at Skyline Digital Labs, you will lead the design and development of highly scalable, distributed software systems used by thousands of users globally. You will play a critical role in architectural decision-making, code quality governance, and mentoring junior engineers while contributing to high-impact technical projects.",
+            "coreResponsibilities": [
+                "Lead the design and implementation of complex, distributed software systems and microservices architectures.",
+                "Define and enforce engineering best practices, coding standards, and architectural guidelines across teams.",
+                "Mentor and support junior and mid-level engineers through code reviews and technical guidance.",
+                "Collaborate with product and DevOps teams to ensure reliable deployment and system scalability.",
+                "Identify performance bottlenecks and implement system-level optimizations.",
+                "Participate in strategic technical planning and roadmap development."
+            ],
+            "requiredQualifications": [
+                "Minimum of 5+ years of professional software development experience.",
+                "Strong background in system design, distributed systems, and scalable architecture.",
+                "Experience working with cloud platforms such as AWS, Azure, or GCP.",
+                "Proven track record of delivering production-grade software systems.",
+                "Bachelor’s or Master’s degree in Computer Science or equivalent experience."
+            ],
+            "skillsAndCompetencies": [
+                "Advanced knowledge of microservices architecture and distributed systems design.",
+                "Strong experience with containerization technologies such as Docker and Kubernetes.",
+                "Expert-level programming skills in at least one modern language (Java, Python, Go, or Node.js).",
+                "Deep understanding of system scalability, caching strategies, and performance tuning.",
+                "Leadership and mentoring abilities within engineering teams.",
+                "Strong communication and cross-functional collaboration skills."
+            ]
+        },
+        {
+            "id": 4,
+            "title": "Engineering Manager",
+            "company": "FusionTech UK",
+            "location": "Edinburgh, UK",
+            "datePosted": "2026-05-10",
+            "levelOfExperience": "manager",
+            "employmentType": "full-time",
+            "description": "As an Engineering Manager at FusionTech UK, you will lead multiple software engineering teams responsible for delivering high-quality digital products. You will balance technical leadership with people management, ensuring engineering excellence, team growth, and alignment with business objectives.",
+            "coreResponsibilities": [
+                "Lead, mentor, and manage software engineering teams across multiple projects and product lines.",
+                "Define technical strategy in collaboration with senior leadership and product stakeholders.",
+                "Oversee project delivery, ensuring timelines, quality standards, and scope are met.",
+                "Conduct performance reviews and support professional development of team members.",
+                "Facilitate communication between engineering, product, and business teams.",
+                "Drive adoption of engineering best practices, Agile methodologies, and DevOps principles."
+            ],
+            "requiredQualifications": [
+                "Extensive experience in software engineering with at least 2–4 years in a leadership or managerial role.",
+                "Strong technical background with hands-on software development experience.",
+                "Proven ability to manage cross-functional teams and complex technical projects.",
+                "Experience with Agile/Scrum methodologies and product lifecycle management.",
+                "Bachelor’s or Master’s degree in Computer Science or related field."
+            ],
+            "skillsAndCompetencies": [
+                "Strong leadership and team management capabilities.",
+                "Excellent communication and stakeholder management skills.",
+                "Understanding of system architecture and software development lifecycles.",
+                "Ability to balance technical and business priorities effectively.",
+                "Experience with Agile tools such as Jira or Azure DevOps.",
+                "Conflict resolution and decision-making skills."
+            ]
+        },
+        {
+            "id": 5,
+            "title": "Software Engineering Intern",
+            "company": "CloudPath Innovations",
+            "location": "Bristol, UK",
+            "datePosted": "2026-05-22",
+            "levelOfExperience": "entry-level",
+            "employmentType": "part-time",
+            "description": "As a Software Engineering Intern at CloudPath Innovations, you will gain hands-on experience working alongside experienced engineers on real-world software systems. This role is designed to provide exposure to full-stack development, software testing, and collaborative engineering practices in a professional environment.",
+            "coreResponsibilities": [
+                "Assist in the development, testing, and maintenance of software applications under supervision.",
+                "Write and execute unit tests to ensure code quality and reliability.",
+                "Participate in agile team meetings, including stand-ups and sprint planning sessions.",
+                "Debug and resolve minor software issues and bugs.",
+                "Contribute to documentation and knowledge-sharing within the team.",
+                "Learn and apply modern software development practices and tools."
+            ],
+            "requiredQualifications": [
+                "Currently pursuing a degree in Computer Science, Software Engineering, or related discipline.",
+                "Basic understanding of programming concepts and at least one programming language.",
+                "Familiarity with version control systems such as Git.",
+                "Strong willingness to learn and adapt in a fast-paced environment.",
+                "Good problem-solving and analytical thinking skills."
+            ],
+            "skillsAndCompetencies": [
+                "Basic proficiency in Python, JavaScript, or Java.",
+                "Understanding of software development lifecycle (SDLC).",
+                "Familiarity with debugging and testing principles.",
+                "Ability to work collaboratively in a team environment.",
+                "Strong communication and time management skills.",
+                "Eagerness to learn modern development frameworks and tools."
+            ]
+        },
+        {
+            "id": 6,
+            "title": "Open Source Contributor",
+            "company": "UK Open Dev Collective",
+            "location": "Liverpool, UK",
+            "datePosted": "2026-05-19",
+            "levelOfExperience": "junior",
+            "employmentType": "volunteer",
+            "description": "As an Open Source Contributor at UK Open Dev Collective, you will contribute to meaningful open-source projects that impact developers globally. You will collaborate with a distributed community of engineers, improve existing codebases, and help build tools that support the broader software engineering ecosystem.",
+            "coreResponsibilities": [
+                "Contribute code improvements, bug fixes, and new features to open-source repositories.",
+                "Review and provide feedback on pull requests from other contributors.",
+                "Collaborate with global developer communities via GitHub and discussion forums.",
+                "Participate in issue triaging, documentation improvement, and project maintenance.",
+                "Follow project coding standards and contribution guidelines.",
+                "Support onboarding of new contributors to open-source projects."
+            ],
+            "requiredQualifications": [
+                "Basic to intermediate programming experience in any modern language.",
+                "Understanding of Git and GitHub workflows.",
+                "Familiarity with collaborative development practices.",
+                "Ability to read and understand existing codebases.",
+                "Self-motivation and ability to work independently."
+            ],
+            "skillsAndCompetencies": [
+                "Strong understanding of version control (Git/GitHub).",
+                "Problem-solving and debugging skills.",
+                "Ability to work in distributed and asynchronous teams.",
+                "Communication skills for technical collaboration.",
+                "Adaptability to different codebases and technologies.",
+                "Commitment to open-source principles and collaboration."
+            ]
+        },
+        {
+            "id": 7,
+            "title": "DevOps Engineer",
+            "company": "CloudScale UK",
+            "location": "London, UK",
+            "datePosted": "2026-05-21",
+            "levelOfExperience": "junior",
+            "employmentType": "full-time",
+            "description": "As a DevOps Engineer, you will support the automation, deployment, and scaling of cloud infrastructure across multiple production systems. You will work closely with development teams to ensure reliable CI/CD pipelines and high system availability.",
+            "coreResponsibilities": [
+                "Build and maintain CI/CD pipelines using modern DevOps tools.",
+                "Manage cloud infrastructure and ensure system scalability.",
+                "Monitor system performance and resolve deployment issues.",
+                "Automate infrastructure provisioning using IaC tools.",
+                "Collaborate with developers to streamline release cycles.",
+                "Implement security best practices across infrastructure."
+            ],
+            "requiredQualifications": [
+                "Degree in Computer Science or equivalent experience.",
+                "Understanding of cloud computing concepts.",
+                "Familiarity with Linux systems and scripting.",
+                "Basic knowledge of CI/CD pipelines."
+            ],
+            "skillsAndCompetencies": [
+                "Docker",
+                "Kubernetes",
+                "AWS",
+                "Terraform",
+                "CI/CD tools (Jenkins/GitHub Actions)",
+                "Linux administration"
+            ]
+        },
+        {
+            "id": 8,
+            "title": "Mobile App Developer",
+            "company": "AppForge Studios",
+            "location": "Manchester, UK",
+            "datePosted": "2026-05-19",
+            "levelOfExperience": "entry-level",
+            "employmentType": "full-time",
+            "description": "You will design and build mobile applications for Android and iOS platforms, focusing on performance, usability, and modern UI/UX standards.",
+            "coreResponsibilities": [
+                "Develop mobile applications using Flutter or React Native.",
+                "Integrate mobile apps with backend services.",
+                "Ensure performance optimization across devices.",
+                "Fix bugs and improve app stability.",
+                "Collaborate with designers on UI implementation.",
+                "Publish apps to app stores."
+            ],
+            "requiredQualifications": [
+                "Understanding of mobile development principles.",
+                "Basic programming experience in Dart or JavaScript.",
+                "Familiarity with REST APIs."
+            ],
+            "skillsAndCompetencies": [
+                "Flutter",
+                "React Native",
+                "Mobile UI design",
+                "API integration",
+                "Debugging",
+                "Git"
+            ]
+        },
+        {
+            "id": 9,
+            "title": "Data Engineer",
+            "company": "DataBridge Analytics",
+            "location": "Birmingham, UK",
+            "datePosted": "2026-05-18",
+            "levelOfExperience": "senior",
+            "employmentType": "full-time",
+            "description": "Responsible for building scalable data pipelines and ensuring efficient data flow across systems for analytics and business intelligence.",
+            "coreResponsibilities": [
+                "Design and build ETL pipelines.",
+                "Optimize large-scale data processing systems.",
+                "Work with data scientists to prepare datasets.",
+                "Maintain data warehouses.",
+                "Ensure data integrity and security.",
+                "Implement real-time data processing systems."
+            ],
+            "requiredQualifications": [
+                "5+ years experience in data engineering.",
+                "Strong SQL and Python skills.",
+                "Experience with distributed systems."
+            ],
+            "skillsAndCompetencies": [
+                "Apache Spark",
+                "Kafka",
+                "SQL",
+                "Python",
+                "Data warehousing",
+                "ETL pipelines"
+            ]
+        },
+        {
+            "id": 10,
+            "title": "Machine Learning Engineer",
+            "company": "AI Horizon UK",
+            "location": "Cambridge, UK",
+            "datePosted": "2026-05-17",
+            "levelOfExperience": "senior",
+            "employmentType": "full-time",
+            "description": "You will develop and deploy machine learning models that solve real-world problems across vision, NLP, and predictive analytics.",
+            "coreResponsibilities": [
+                "Design ML models and training pipelines.",
+                "Deploy models into production systems.",
+                "Optimize model performance and accuracy.",
+                "Work with large datasets.",
+                "Collaborate with research teams.",
+                "Monitor model drift in production."
+            ],
+            "requiredQualifications": [
+                "Degree in AI, Computer Science, or related field.",
+                "Strong mathematical and statistical background.",
+                "Experience with ML frameworks."
+            ],
+            "skillsAndCompetencies": [
+                "Python",
+                "TensorFlow / PyTorch",
+                "Data science",
+                "Model deployment",
+                "Statistics",
+                "Deep learning"
+            ]
+        },
+        {
+            "id": 11,
+            "title": "Full Stack Engineer",
+            "company": "StackFusion UK",
+            "location": "London, UK",
+            "datePosted": "2026-05-16",
+            "levelOfExperience": "mid-level",
+            "employmentType": "full-time",
+            "description": "You will build end-to-end web applications, working across frontend and backend systems to deliver scalable and performant digital products.",
+            "coreResponsibilities": [
+                "Develop full stack web applications using modern frameworks.",
+                "Design and implement RESTful APIs.",
+                "Build responsive frontend interfaces.",
+                "Maintain database schemas and backend logic.",
+                "Collaborate with cross-functional teams.",
+                "Optimize application performance."
+            ],
+            "requiredQualifications": [
+                "2–4 years software development experience.",
+                "Strong understanding of frontend and backend systems.",
+                "Experience with JavaScript/TypeScript."
+            ],
+            "skillsAndCompetencies": [
+                "React",
+                "Node.js",
+                "Express",
+                "SQL",
+                "REST APIs",
+                "Git"
+            ]
+        },
+        {
+            "id": 12,
+            "title": "Cloud Engineer",
+            "company": "Nimbus Cloud UK",
+            "location": "Edinburgh, UK",
+            "datePosted": "2026-05-15",
+            "levelOfExperience": "junior",
+            "employmentType": "contract",
+            "description": "Support the design, deployment, and maintenance of cloud infrastructure systems across scalable environments.",
+            "coreResponsibilities": [
+                "Deploy cloud infrastructure using AWS or Azure.",
+                "Monitor system health and uptime.",
+                "Automate deployment workflows.",
+                "Assist in infrastructure scaling.",
+                "Support security configurations.",
+                "Troubleshoot cloud issues."
+            ],
+            "requiredQualifications": [
+                "Basic understanding of cloud computing.",
+                "Familiarity with Linux systems.",
+                "Some scripting experience."
+            ],
+            "skillsAndCompetencies": [
+                "AWS",
+                "Azure",
+                "Terraform",
+                "Linux",
+                "Networking basics",
+                "CI/CD"
+            ]
+        },
+        {
+            "id": 13,
+            "title": "Software Engineer",
+            "company": "CoreLogic Systems",
+            "location": "Bristol, UK",
+            "datePosted": "2026-05-14",
+            "levelOfExperience": "entry-level",
+            "employmentType": "full-time",
+            "description": "You will contribute to building scalable software solutions and improving existing systems in a collaborative engineering environment.",
+            "coreResponsibilities": [
+                "Write clean and maintainable code.",
+                "Fix bugs and improve system stability.",
+                "Participate in code reviews.",
+                "Collaborate with senior engineers.",
+                "Develop new product features.",
+                "Support testing and debugging."
+            ],
+            "requiredQualifications": [
+                "Degree in Computer Science or related field.",
+                "Basic programming knowledge.",
+                "Understanding of software development lifecycle."
+            ],
+            "skillsAndCompetencies": [
+                "JavaScript",
+                "Python",
+                "Git",
+                "Debugging",
+                "Problem solving",
+                "Team collaboration"
+            ]
+        },
+        {
+            "id": 14,
+            "title": "Data Scientist",
+            "company": "Insight Analytics UK",
+            "location": "Oxford, UK",
+            "datePosted": "2026-05-13",
+            "levelOfExperience": "senior",
+            "employmentType": "full-time",
+            "description": "You will analyze complex datasets to extract insights and build predictive models that drive business decisions.",
+            "coreResponsibilities": [
+                "Analyze large datasets for insights.",
+                "Build predictive models.",
+                "Develop data visualizations.",
+                "Collaborate with engineering teams.",
+                "Present findings to stakeholders.",
+                "Improve data quality."
+            ],
+            "requiredQualifications": [
+                "Strong statistical background.",
+                "Experience in machine learning.",
+                "Degree in Data Science or related field."
+            ],
+            "skillsAndCompetencies": [
+                "Python",
+                "R",
+                "SQL",
+                "Machine Learning",
+                "Pandas",
+                "Data visualization"
+            ]
+        },
+        {
+            "id": 15,
+            "title": "Backend Engineer",
+            "company": "ServerSide UK",
+            "location": "Manchester, UK",
+            "datePosted": "2026-05-12",
+            "levelOfExperience": "mid-level",
+            "employmentType": "full-time",
+            "description": "You will design and maintain backend systems powering scalable web applications and APIs.",
+            "coreResponsibilities": [
+                "Develop REST APIs.",
+                "Maintain database systems.",
+                "Improve backend performance.",
+                "Integrate third-party services.",
+                "Write unit tests.",
+                "Ensure system reliability."
+            ],
+            "requiredQualifications": [
+                "Experience with backend development.",
+                "Knowledge of databases.",
+                "Familiarity with APIs."
+            ],
+            "skillsAndCompetencies": [
+                "Node.js",
+                "Express",
+                "PostgreSQL",
+                "MongoDB",
+                "API design",
+                "Testing"
+            ]
+        },
+        {
+            "id": 16,
+            "title": "Frontend Developer",
+            "company": "PixelCraft UK",
+            "location": "Liverpool, UK",
+            "datePosted": "2026-05-11",
+            "levelOfExperience": "junior",
+            "employmentType": "part-time",
+            "description": "You will build user-facing interfaces and ensure responsive design across web applications.",
+            "coreResponsibilities": [
+                "Develop UI components.",
+                "Improve user experience.",
+                "Work with design teams.",
+                "Fix frontend bugs.",
+                "Optimize performance.",
+                "Maintain code quality."
+            ],
+            "requiredQualifications": [
+                "Basic knowledge of frontend development.",
+                "Understanding of HTML/CSS/JS.",
+                "Interest in UI/UX."
+            ],
+            "skillsAndCompetencies": [
+                "React",
+                "HTML",
+                "CSS",
+                "JavaScript",
+                "UI design",
+                "Debugging"
+            ]
+        },
+        {
+            "id": 17,
+            "title": "Systems Engineer",
+            "company": "InfraWorks UK",
+            "location": "Glasgow, UK",
+            "datePosted": "2026-05-10",
+            "levelOfExperience": "senior",
+            "employmentType": "full-time",
+            "description": "You will manage and optimize IT systems and infrastructure for enterprise environments.",
+            "coreResponsibilities": [
+                "Maintain system infrastructure.",
+                "Ensure uptime and reliability.",
+                "Manage servers and networks.",
+                "Implement security policies.",
+                "Automate system tasks.",
+                "Monitor system performance."
+            ],
+            "requiredQualifications": [
+                "Experience in systems engineering.",
+                "Knowledge of networking.",
+                "Linux administration skills."
+            ],
+            "skillsAndCompetencies": [
+                "Linux",
+                "Networking",
+                "Cloud systems",
+                "Security",
+                "Automation",
+                "Monitoring tools"
+            ]
+        },
+        {
+            "id": 18,
+            "title": "QA Engineer",
+            "company": "QualitySoft UK",
+            "location": "London, UK",
+            "datePosted": "2026-05-09",
+            "levelOfExperience": "entry-level",
+            "employmentType": "contract",
+            "description": "You will ensure software quality by designing and executing test plans for web and mobile applications.",
+            "coreResponsibilities": [
+                "Write test cases.",
+                "Perform manual and automated testing.",
+                "Report bugs.",
+                "Work with developers.",
+                "Ensure product quality.",
+                "Maintain test documentation."
+            ],
+            "requiredQualifications": [
+                "Understanding of software testing.",
+                "Attention to detail.",
+                "Basic technical knowledge."
+            ],
+            "skillsAndCompetencies": [
+                "Selenium",
+                "JUnit",
+                "Test automation",
+                "Bug tracking",
+                "Attention to detail",
+                "Communication"
+            ]
+        },
+        {
+            "id": 19,
+            "title": "AI Engineer",
+            "company": "NeuralEdge UK",
+            "location": "Cambridge, UK",
+            "datePosted": "2026-05-08",
+            "levelOfExperience": "senior",
+            "employmentType": "full-time",
+            "description": "You will design and deploy AI-powered systems for real-world applications.",
+            "coreResponsibilities": [
+                "Develop AI models.",
+                "Train deep learning systems.",
+                "Deploy AI solutions.",
+                "Optimize model performance.",
+                "Research new techniques.",
+                "Work with large datasets."
+            ],
+            "requiredQualifications": [
+                "Strong AI/ML background.",
+                "Experience with deep learning.",
+                "Advanced mathematics knowledge."
+            ],
+            "skillsAndCompetencies": [
+                "TensorFlow",
+                "PyTorch",
+                "Python",
+                "Deep learning",
+                "NLP",
+                "Computer vision"
+            ]
+        },
+        {
+            "id": 20,
+            "title": "Technical Support Engineer",
+            "company": "HelpDesk UK",
+            "location": "Birmingham, UK",
+            "datePosted": "2026-05-07",
+            "levelOfExperience": "entry-level",
+            "employmentType": "part-time",
+            "description": "You will provide technical support to users and resolve software-related issues.",
+            "coreResponsibilities": [
+                "Respond to user issues.",
+                "Troubleshoot software problems.",
+                "Escalate complex issues.",
+                "Document solutions.",
+                "Assist engineering teams.",
+                "Improve support workflows."
+            ],
+            "requiredQualifications": [
+                "Basic IT knowledge.",
+                "Good communication skills.",
+                "Problem-solving ability."
+            ],
+            "skillsAndCompetencies": [
+                "Customer support",
+                "Troubleshooting",
+                "Networking basics",
+                "Communication",
+                "Ticketing systems",
+                "Software knowledge"
+            ]
+        },
+            {
+      "id": 21,
+      "title": "Site Reliability Engineer",
+      "company": "Reliant Systems UK",
+      "location": "London, UK",
+      "datePosted": "2026-05-06",
+      "levelOfExperience": "senior",
+      "employmentType": "full-time",
+      "description": "You will ensure high availability, scalability, and reliability of production systems by designing resilient infrastructure and automation solutions.",
+      "coreResponsibilities": [
+        "Monitor system performance and reliability.",
+        "Design scalable infrastructure solutions.",
+        "Automate operational processes.",
+        "Respond to production incidents.",
+        "Improve system observability.",
+        "Collaborate with DevOps and engineering teams."
+      ],
+      "requiredQualifications": [
+        "5+ years in infrastructure or SRE roles.",
+        "Strong Linux and networking knowledge.",
+        "Experience with cloud platforms."
+      ],
+      "skillsAndCompetencies": [
+        "Kubernetes",
+        "Docker",
+        "AWS",
+        "Terraform",
+        "Monitoring tools",
+        "Incident management"
+      ]
+    },
+    {
+      "id": 22,
+      "title": "Game Developer",
+      "company": "PixelForge Studios UK",
+      "location": "Manchester, UK",
+      "datePosted": "2026-05-05",
+      "levelOfExperience": "mid-level",
+      "employmentType": "full-time",
+      "description": "You will design and develop interactive gameplay systems and mechanics for high-quality video games across multiple platforms.",
+      "coreResponsibilities": [
+        "Develop game mechanics and features.",
+        "Implement gameplay systems in game engines.",
+        "Optimize game performance.",
+        "Collaborate with artists and designers.",
+        "Fix gameplay bugs.",
+        "Support game testing cycles."
+      ],
+      "requiredQualifications": [
+        "Experience in game development.",
+        "Knowledge of game engines.",
+        "Understanding of 3D mathematics."
+      ],
+      "skillsAndCompetencies": [
+        "Unity",
+        "Unreal Engine",
+        "C++",
+        "C#",
+        "Game physics",
+        "Problem-solving"
+      ]
+    },
+    {
+      "id": 23,
+      "title": "Software Architect",
+      "company": "Enterprise Logic UK",
+      "location": "Edinburgh, UK",
+      "datePosted": "2026-05-04",
+      "levelOfExperience": "manager",
+      "employmentType": "full-time",
+      "description": "You will define system architecture and guide engineering teams in building scalable enterprise-grade software systems.",
+      "coreResponsibilities": [
+        "Design system architecture.",
+        "Define technical standards.",
+        "Review system designs.",
+        "Guide engineering teams.",
+        "Ensure scalability and performance.",
+        "Evaluate new technologies."
+      ],
+      "requiredQualifications": [
+        "Extensive software engineering experience.",
+        "Strong system design knowledge.",
+        "Leadership experience."
+      ],
+      "skillsAndCompetencies": [
+        "System design",
+        "Microservices",
+        "Cloud architecture",
+        "Leadership",
+        "Distributed systems",
+        "Technical strategy"
+      ]
+    },
+    {
+      "id": 24,
+      "title": "Backend API Engineer",
+      "company": "APIWorks UK",
+      "location": "Bristol, UK",
+      "datePosted": "2026-05-03",
+      "levelOfExperience": "junior",
+      "employmentType": "contract",
+      "description": "You will design and maintain scalable APIs that power web and mobile applications.",
+      "coreResponsibilities": [
+        "Build RESTful APIs.",
+        "Maintain backend services.",
+        "Write API documentation.",
+        "Test API endpoints.",
+        "Fix backend bugs.",
+        "Optimize API performance."
+      ],
+      "requiredQualifications": [
+        "Basic backend development knowledge.",
+        "Understanding of REST principles.",
+        "Familiarity with databases."
+      ],
+      "skillsAndCompetencies": [
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "REST APIs",
+        "JSON",
+        "Git"
+      ]
+    },
+    {
+      "id": 25,
+      "title": "Frontend UI Engineer",
+      "company": "DesignSync UK",
+      "location": "Liverpool, UK",
+      "datePosted": "2026-05-02",
+      "levelOfExperience": "entry-level",
+      "employmentType": "full-time",
+      "description": "You will focus on building pixel-perfect, responsive user interfaces for modern web applications.",
+      "coreResponsibilities": [
+        "Implement UI designs.",
+        "Build reusable components.",
+        "Ensure cross-browser compatibility.",
+        "Improve UX performance.",
+        "Collaborate with designers.",
+        "Maintain frontend code quality."
+      ],
+      "requiredQualifications": [
+        "Basic frontend development skills.",
+        "Understanding of responsive design.",
+        "Familiarity with JavaScript."
+      ],
+      "skillsAndCompetencies": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React",
+        "UI/UX principles",
+        "Debugging"
+      ]
+    },
+    {
+      "id": 26,
+      "title": "Data Analyst",
+      "company": "MetricMind UK",
+      "location": "Leeds, UK",
+      "datePosted": "2026-05-01",
+      "levelOfExperience": "entry-level",
+      "employmentType": "part-time",
+      "description": "You will analyze datasets to generate insights that support business decisions and performance improvements.",
+      "coreResponsibilities": [
+        "Analyze datasets.",
+        "Create reports and dashboards.",
+        "Identify trends and insights.",
+        "Support business decisions.",
+        "Clean and transform data.",
+        "Visualize data findings."
+      ],
+      "requiredQualifications": [
+        "Basic statistics knowledge.",
+        "Familiarity with Excel or SQL.",
+        "Analytical thinking."
+      ],
+      "skillsAndCompetencies": [
+        "SQL",
+        "Excel",
+        "Python",
+        "Data visualization",
+        "Statistics",
+        "Communication"
+      ]
+    },
+    {
+      "id": 27,
+      "title": "Blockchain Developer",
+      "company": "ChainLogic UK",
+      "location": "London, UK",
+      "datePosted": "2026-04-30",
+      "levelOfExperience": "senior",
+      "employmentType": "contract",
+      "description": "You will build decentralized applications and smart contracts for blockchain-based systems.",
+      "coreResponsibilities": [
+        "Develop smart contracts.",
+        "Build decentralized applications.",
+        "Audit blockchain code.",
+        "Integrate blockchain systems.",
+        "Optimize transaction performance.",
+        "Research blockchain protocols."
+      ],
+      "requiredQualifications": [
+        "Experience with blockchain development.",
+        "Understanding of cryptography.",
+        "Smart contract experience."
+      ],
+      "skillsAndCompetencies": [
+        "Solidity",
+        "Ethereum",
+        "Web3",
+        "Smart contracts",
+        "Cryptography",
+        "Distributed systems"
+      ]
+    },
+    {
+      "id": 28,
+      "title": "QA Automation Engineer",
+      "company": "TestCore UK",
+      "location": "Birmingham, UK",
+      "datePosted": "2026-04-29",
+      "levelOfExperience": "junior",
+      "employmentType": "full-time",
+      "description": "You will build automated testing frameworks to ensure software quality and reliability.",
+      "coreResponsibilities": [
+        "Develop automated test scripts.",
+        "Run regression tests.",
+        "Identify bugs in applications.",
+        "Maintain test frameworks.",
+        "Collaborate with developers.",
+        "Improve testing processes."
+      ],
+      "requiredQualifications": [
+        "Basic software testing knowledge.",
+        "Familiarity with programming.",
+        "Understanding of QA processes."
+      ],
+      "skillsAndCompetencies": [
+        "Selenium",
+        "Cypress",
+        "JavaScript",
+        "Testing frameworks",
+        "Bug tracking",
+        "Automation"
+      ]
+    },
+    {
+      "id": 29,
+      "title": "Product Engineer",
+      "company": "BuildFlow UK",
+      "location": "Oxford, UK",
+      "datePosted": "2026-04-28",
+      "levelOfExperience": "mid-level",
+      "employmentType": "full-time",
+      "description": "You will work across engineering and product teams to build user-focused software solutions.",
+      "coreResponsibilities": [
+        "Develop product features.",
+        "Work with product managers.",
+        "Improve user experience.",
+        "Fix production issues.",
+        "Optimize performance.",
+        "Participate in planning sessions."
+      ],
+      "requiredQualifications": [
+        "Experience in software development.",
+        "Understanding of product lifecycle.",
+        "Frontend and backend knowledge."
+      ],
+      "skillsAndCompetencies": [
+        "Full stack development",
+        "React",
+        "Node.js",
+        "API design",
+        "UX thinking",
+        "Agile development"
+      ]
+    },
+    {
+      "id": 30,
+      "title": "Junior Software Engineer",
+      "company": "LaunchCode UK",
+      "location": "Glasgow, UK",
+      "datePosted": "2026-04-27",
+      "levelOfExperience": "entry-level",
+      "employmentType": "full-time",
+      "description": "You will support the development of software applications while learning industry best practices in a professional engineering team.",
+      "coreResponsibilities": [
+        "Write and maintain code.",
+        "Fix bugs and issues.",
+        "Assist senior engineers.",
+        "Participate in code reviews.",
+        "Learn development workflows.",
+        "Support testing activities."
+      ],
+      "requiredQualifications": [
+        "Basic programming knowledge.",
+        "Understanding of software development.",
+        "Willingness to learn."
+      ],
+      "skillsAndCompetencies": [
+        "JavaScript",
+        "Python",
+        "Git",
+        "Problem solving",
+        "Debugging",
+        "Team collaboration"
+      ]
+    }
+  ]
+}
+        
