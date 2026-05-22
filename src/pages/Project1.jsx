@@ -27,7 +27,6 @@ const Project1 = () => {
 
 
 
-
   return (
     <div>
       <div className='mt-3 flex items-center justify-between  px--7'>
@@ -126,6 +125,17 @@ const Project1 = () => {
               </div>
             </div>
           }
+
+        </div>
+
+      </div>
+
+      <div className='flex justify-between space-x-5 p-5 border border-slate-400 w-full mt-10'>
+        <div className='border border-slate-500 max-w-sm w-full'>
+          <h1>hello cunts</h1>
+        </div>
+
+        <div className='max-w-5xl w-full border'>
 
         </div>
 
