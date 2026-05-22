@@ -1,12 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown, X } from 'lucide-react'
 import { NavLink, Link } from 'react-router-dom'
 
-const Project1 = () => {
-  const [open, setOpen] = useState(false)
-  const [open2, setOpen2] = useState(false)
+async function getData() {
+  const res = await fetch("http://localhost:3000/jobs");
+  if (!res.ok) {
+    throw new Error("Network Issues");
+  }
 
+  return res.json();
+}
+
+const Project1 = () => {
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+
+  const { data: jobs, isLoading, isError, error } = useQuery({
+    queryKey: ["jobs"],
+    queryFn: getData,
+    staleTime: 1000 * 5
+  })
+
+  function handleChange(e) {
+    const search = e.target.value
+    setQuery(search)
+  }
+
+  useEffect(() => {
+
+    const filteredJobs = results.filter((item) => {
+      return item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.company.toLowerCase().includes(query.toLowerCase()) ||
+        item.location.toLowerCase().includes(query.toLocaleLowerCase())
+    })
+    setResults(filteredJobs)
+  },[query])
 
 
   function handleClick() {
@@ -35,7 +66,7 @@ const Project1 = () => {
           <Bolt size={35} />
           <div className='flex items-center border rounded-full px-6 '>
             <Search size={18} />
-            <input className=' px-5 py-2 rounded-full w-100 placeholder:italic focus:outline-0 focus:border-0' type="text" placeholder='Describe the job you want' />
+            <input className=' px-5 py-2 rounded-full w-100 placeholder:italic focus:outline-0 focus:border-0' type="text" placeholder='Describe the job you want' value={query} onChange={handleChange} />
           </div>
         </div>
 
@@ -132,7 +163,9 @@ const Project1 = () => {
 
       <div className='flex justify-between space-x-5 p-5 border border-slate-400 w-full mt-10'>
         <div className='border border-slate-500 max-w-sm w-full'>
-          <h1>hello cunts</h1>
+          {isLoading && <p>Loading...</p>}
+          {isError && <p>Something went wrong{error.message}</p>}
+          
         </div>
 
         <div className='max-w-5xl w-full border'>
