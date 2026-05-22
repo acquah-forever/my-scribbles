@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown } from 'lucide-react'
+import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown, X } from 'lucide-react'
 import { NavLink, Link } from 'react-router-dom'
 
 const Project1 = () => {
