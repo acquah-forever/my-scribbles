@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
+import { ClipLoader } from 'react-spinners'
 import { useQuery } from '@tanstack/react-query'
 import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown, X } from 'lucide-react'
-import { NavLink, Link } from 'react-router-dom'
+
+const BASE_API_URL = "http://localhost:3000"
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/jobs");
+  const res = await fetch(`${BASE_API_URL}/jobs`);
   if (!res.ok) {
     throw new Error("Network Issues");
   }
@@ -16,10 +18,9 @@ const Project1 = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
   const [page, setPage] = useState(1)
 
-  const jobsPerPage = 5
+  const jobsPerPage = 8
 
   const { data: jobs, isLoading, isError, error } = useQuery({
     queryKey: ["jobs"],
@@ -28,10 +29,42 @@ const Project1 = () => {
   })
 
   function handleChange(e) {
-    const search = e.target.value
-    setQuery(search)
+    setQuery(e.target.value)
   }
 
+  useEffect(() => {
+    setPage(1)
+  }, [query])
+
+  const filteredJobs = useMemo(() => {
+
+    const lowerCase = query.toLowerCase()
+
+    if (!jobs) return []
+
+    if (query.trim() === "") return jobs
+
+    return jobs?.filter((item) =>
+      item.title.toLowerCase().includes(lowerCase) ||
+      item.company.toLowerCase().includes(lowerCase) ||
+      item.location.toLowerCase().includes(lowerCase)
+    ) || []
+  }, [jobs, query])
+
+
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+  const startIndex = (page - 1) * jobsPerPage
+  const endIndex = startIndex + jobsPerPage
+  const paginatedJobs = filteredJobs.slice(startIndex, endIndex)
+
+  function handlePrevious() {
+    setPage((prev) => Math.max(prev - 1, 1))
+
+  }
+
+  function handleNext() {
+    setPage((prev) => Math.min(prev + 1, totalPages))
+  }
 
   function handleClick() {
     if (open2) {
@@ -49,28 +82,25 @@ const Project1 = () => {
     }
   }
 
-  useEffect(() => {
 
-    const filteredJobs = jobs.filter((item) => {
-      return item.title.toLowerCase().includes(query.toLowerCase()) ||
-        item.company.toLowerCase().includes(query.toLowerCase()) ||
-        item.location.toLowerCase().includes(query.toLocaleLowerCase())
-    })
-    setResults(filteredJobs)
-  }, [query])
-
-  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
-  const startIndex = (page - 1) * jobsPerPage
-  const endIndex = startIndex + jobsPerPage
-  const paginatedJobs = filteredJobs.slice(startIndex, endIndex)
-
-  function handlePrevious() {
-    setPage(Math.max((prev) => prev(page - 1, 1)))
+  if (isLoading) {
+    return (
+      <div className='flex justify-center items-center min-h-screen'>
+        <ClipLoader color="#36d7b7" size={100} />
+      </div>
+    )
   }
 
-  function handleNext() {
-    setPage(Math.min((prev) => prev(page + 1, totalPages)))
+  if (isError) {
+    return (
+      <div className='flex flex-col justify-center items-center min-h-screen'>
+        <p className='text-red-500 font-semibold'>
+          {error.message}
+        </p>
+      </div>
+    )
   }
+
 
 
   return (
@@ -176,30 +206,28 @@ const Project1 = () => {
 
       </div>
 
-      <div className='flex justify-between space-x-5 p-5 border border-slate-400 w-full mt-10'>
-        <div className='border border-slate-500 max-w-sm w-full'>
-          {isLoading && <p>Loading...</p>}
-          {isError && <p>Something went wrong{error.message}</p>}
+      <div className='flex justify-between space-x-5  border border-slate-400 w-full mt-10'>
+        <div className='border-r border-r-slate-500 max-w-sm w-full'>
 
-          {paginatedJobs?.length === 0 && !isLoading && query.length !== "" ? (
+          {paginatedJobs?.length === 0 && !isLoading && query.trim() !== "" ? (
             <p>No Jobs Found</p>
           ) : (
             paginatedJobs.map((job) =>
-              <div className='mb-3 p-3' key={job.id}>
-                <h1>{job.title}</h1>
-                <h1>{job.company}</h1>
-                <h1>{job.location}</h1>
+              <div className='mb-3 p-3 border-b border-b-slate-500' key={job.id}>
+                <h1 className='text-sky-500 font-semibold text-xl'>{job.title}</h1>
+                <h1 className='text-md'>{job.company}</h1>
+                <h1 className='text-md'>{job.location}</h1>
               </div>
             )
           )}
 
           <div>
             <button className='bg-slate-600 px-4 py-2 rounded' onClick={handlePrevious}>Previous Page</button>
-            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handleNext}>Next P|age</button>
+            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handleNext}>Next Page</button>
           </div>
         </div>
 
-        <div className='max-w-5xl w-full border'>
+        <div className='max-w-5xl w-full'>
 
         </div>
 
@@ -207,5 +235,6 @@ const Project1 = () => {
     </div >
   )
 }
+
 
 export default Project1
