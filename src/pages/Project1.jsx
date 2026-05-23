@@ -1,12 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown } from 'lucide-react'
+import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown, X } from 'lucide-react'
 import { NavLink, Link } from 'react-router-dom'
 
-const Project1 = () => {
-  const [open, setOpen] = useState(false)
-  const [open2, setOpen2] = useState(false)
+async function getData() {
+  const res = await fetch("http://localhost:3000/jobs");
+  if (!res.ok) {
+    throw new Error("Network Issues");
+  }
 
+  return res.json();
+}
+
+const Project1 = () => {
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [page, setPage] = useState(1)
+
+  const jobsPerPage = 5
+
+  const { data: jobs, isLoading, isError, error } = useQuery({
+    queryKey: ["jobs"],
+    queryFn: getData,
+    staleTime: 1000 * 5
+  })
+
+  function handleChange(e) {
+    const search = e.target.value
+    setQuery(search)
+  }
 
 
   function handleClick() {
@@ -25,7 +49,28 @@ const Project1 = () => {
     }
   }
 
+  useEffect(() => {
 
+    const filteredJobs = jobs.filter((item) => {
+      return item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.company.toLowerCase().includes(query.toLowerCase()) ||
+        item.location.toLowerCase().includes(query.toLocaleLowerCase())
+    })
+    setResults(filteredJobs)
+  }, [query])
+
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+  const startIndex = (page - 1) * jobsPerPage
+  const endIndex = startIndex + jobsPerPage
+  const paginatedJobs = filteredJobs.slice(startIndex, endIndex)
+
+  function handlePrevious() {
+    setPage(Math.max((prev) => prev(page - 1, 1)))
+  }
+
+  function handleNext() {
+    setPage(Math.min((prev) => prev(page + 1, totalPages)))
+  }
 
 
   return (
@@ -36,7 +81,7 @@ const Project1 = () => {
           <Bolt size={35} />
           <div className='flex items-center border rounded-full px-6 '>
             <Search size={18} />
-            <input className=' px-5 py-2 rounded-full w-100 placeholder:italic focus:outline-0 focus:border-0' type="text" placeholder='Describe the job you want' />
+            <input className=' px-5 py-2 rounded-full w-100 placeholder:italic focus:outline-0 focus:border-0' type="text" placeholder='Describe the job you want' value={query} onChange={handleChange} />
           </div>
         </div>
 
@@ -92,7 +137,7 @@ const Project1 = () => {
           <button className='flex items-center gap-3 border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300' onClick={handleClick2}>Employment Type <ChevronDown size={18} /></button>
 
           {open2 &&
-            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-100 h-70 z-10'>
+            <div className='absolute  top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-100 h-70 z-10'>
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
@@ -126,6 +171,35 @@ const Project1 = () => {
               </div>
             </div>
           }
+
+        </div>
+
+      </div>
+
+      <div className='flex justify-between space-x-5 p-5 border border-slate-400 w-full mt-10'>
+        <div className='border border-slate-500 max-w-sm w-full'>
+          {isLoading && <p>Loading...</p>}
+          {isError && <p>Something went wrong{error.message}</p>}
+
+          {paginatedJobs?.length === 0 && !isLoading && query.length !== "" ? (
+            <p>No Jobs Found</p>
+          ) : (
+            paginatedJobs.map((job) =>
+              <div className='mb-3 p-3' key={job.id}>
+                <h1>{job.title}</h1>
+                <h1>{job.company}</h1>
+                <h1>{job.location}</h1>
+              </div>
+            )
+          )}
+
+          <div>
+            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handlePrevious}>Previous Page</button>
+            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handleNext}>Next P|age</button>
+          </div>
+        </div>
+
+        <div className='max-w-5xl w-full border'>
 
         </div>
 
