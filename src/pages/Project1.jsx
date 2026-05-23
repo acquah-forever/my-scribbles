@@ -17,6 +17,9 @@ const Project1 = () => {
   const [open2, setOpen2] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [page, setPage] = useState(1)
+
+  const jobsPerPage = 5
 
   const { data: jobs, isLoading, isError, error } = useQuery({
     queryKey: ["jobs"],
@@ -28,16 +31,6 @@ const Project1 = () => {
     const search = e.target.value
     setQuery(search)
   }
-
-  useEffect(() => {
-
-    const filteredJobs = results.filter((item) => {
-      return item.title.toLowerCase().includes(query.toLowerCase()) ||
-        item.company.toLowerCase().includes(query.toLowerCase()) ||
-        item.location.toLowerCase().includes(query.toLocaleLowerCase())
-    })
-    setResults(filteredJobs)
-  },[query])
 
 
   function handleClick() {
@@ -56,6 +49,28 @@ const Project1 = () => {
     }
   }
 
+  useEffect(() => {
+
+    const filteredJobs = jobs.filter((item) => {
+      return item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.company.toLowerCase().includes(query.toLowerCase()) ||
+        item.location.toLowerCase().includes(query.toLocaleLowerCase())
+    })
+    setResults(filteredJobs)
+  }, [query])
+
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+  const startIndex = (page - 1) * jobsPerPage
+  const endIndex = startIndex + jobsPerPage
+  const paginatedJobs = filteredJobs.slice(startIndex, endIndex)
+
+  function handlePrevious() {
+    setPage(Math.max((prev) => prev(page - 1, 1)))
+  }
+
+  function handleNext() {
+    setPage(Math.min((prev) => prev(page + 1, totalPages)))
+  }
 
 
   return (
@@ -165,7 +180,23 @@ const Project1 = () => {
         <div className='border border-slate-500 max-w-sm w-full'>
           {isLoading && <p>Loading...</p>}
           {isError && <p>Something went wrong{error.message}</p>}
-          
+
+          {paginatedJobs?.length === 0 && !isLoading && query.length !== "" ? (
+            <p>No Jobs Found</p>
+          ) : (
+            paginatedJobs.map((job) =>
+              <div className='mb-3 p-3' key={job.id}>
+                <h1>{job.title}</h1>
+                <h1>{job.company}</h1>
+                <h1>{job.location}</h1>
+              </div>
+            )
+          )}
+
+          <div>
+            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handlePrevious}>Previous Page</button>
+            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handleNext}>Next P|age</button>
+          </div>
         </div>
 
         <div className='max-w-5xl w-full border'>
