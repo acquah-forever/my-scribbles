@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react'
+import Error from '../components/Error'
 import { ClipLoader } from 'react-spinners'
 import { useQuery } from '@tanstack/react-query'
 import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown, X } from 'lucide-react'
 
-const BASE_API_URL = "http://localhost:3000"
+const BASE_API_URL = "http://localhost:300"
 
 async function getData() {
   const res = await fetch(`${BASE_API_URL}/jobs`);
@@ -95,10 +96,7 @@ const Project1 = () => {
   if (isError) {
     return (
       <div className='flex flex-col justify-center items-center min-h-screen'>
-        <p className='text-red-500 font-semibold'>
-          😔 &nbsp;
-          {error.message}
-        </p>
+        <Error />
       </div>
     )
   }
