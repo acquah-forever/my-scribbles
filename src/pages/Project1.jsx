@@ -47,7 +47,8 @@ const Project1 = () => {
     return jobs?.filter((item) =>
       item.title.toLowerCase().includes(lowerCase) ||
       item.company.toLowerCase().includes(lowerCase) ||
-      item.location.toLowerCase().includes(lowerCase)
+      item.location.toLowerCase().includes(lowerCase) ||
+      item.levelOfExperience.toLowerCase().includes(lowerCase)
     ) || []
   }, [jobs, query])
 
@@ -95,6 +96,7 @@ const Project1 = () => {
     return (
       <div className='flex flex-col justify-center items-center min-h-screen'>
         <p className='text-red-500 font-semibold'>
+          😔 &nbsp;
           {error.message}
         </p>
       </div>
@@ -122,7 +124,7 @@ const Project1 = () => {
           <BellDot />
         </div>
       </div>
-      <div className='flex space-x-4 text-lg mt-4 px-7'>
+      <div className='flex space-x-4 text-md mt-4 px-7'>
         <button className='border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300'>Remote</button>
 
         <div className='flex flex-col relative'>
@@ -207,28 +209,31 @@ const Project1 = () => {
       </div>
 
       <div className='flex justify-between space-x-5  border border-slate-400 w-full mt-10'>
-        <div className='border-r border-r-slate-500 max-w-sm w-full'>
-
+        <div className='border-r border-r-slate-500 max-w-md w-full'>
           {paginatedJobs?.length === 0 && !isLoading && query.trim() !== "" ? (
             <p>No Jobs Found</p>
           ) : (
             paginatedJobs.map((job) =>
-              <div className='mb-3 p-3 border-b border-b-slate-500' key={job.id}>
+              <div className='cursor-pointer mt-5 px-4 hover:scale-103 transition-all duration-200' key={job.id}>
                 <h1 className='text-sky-500 font-semibold text-xl'>{job.title}</h1>
                 <h1 className='text-md'>{job.company}</h1>
                 <h1 className='text-md'>{job.location}</h1>
+                <h1 className='text-md mt-1 mb-1 font-semibold '>{job.levelOfExperience}</h1>
+
+                <div className='border w-full border-slate-500'></div>
               </div>
+
             )
           )}
 
-          <div>
-            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handlePrevious}>Previous Page</button>
-            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handleNext}>Next Page</button>
+          <div className='mt-10 mb-7 flex justify-center space-x-4'>
+            <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === 1 ? 'bg-gray-400' : 'bg-black' } px-4 py-3 border rounded`} onClick={handlePrevious}disabled={page === 1}>Previous Page</button>
+            <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === totalPages ? "bg-gray-400" : "bg-black"} bg-black border-2 px-7 py-3 rounded-lg`} onClick={handleNext}disabled={page === totalPages}>Next Page</button>
           </div>
         </div>
 
         <div className='max-w-5xl w-full'>
-
+          
         </div>
 
       </div>
