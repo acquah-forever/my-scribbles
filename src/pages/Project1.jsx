@@ -259,14 +259,25 @@ const Project1 = () => {
               <h1 className='mt-7 mb-7'>Required Qualifications</h1>
 
               <div className='mt-5'>
-              <p>{selectedJob.requiredQualifications.map((qual,index) => 
-              <div key={index}>
-                <p>. {qual}</p>
-              </div>
-              )}</p>
+                <p>{selectedJob.requiredQualifications.map((qual, index) =>
+                  <div key={index}>
+                    <p>. {qual}</p>
+                  </div>
+                )}</p>
               </div>
 
-            </div>
+              <h1 className='mt-7 mb-7'>Skills and competencies</h1>
+
+              <div className='mt-5'>
+                <p>{selectedJob.skillsAndCompetencies.map((comp, index) => 
+                <div key={index}>
+                  <p>. {comp}</p>
+                </div>
+                
+                )}</p>
+              </div>
+
+              <div>
 
           ) : (
             <div className='flex justify-center items-center min-h-screen'>
