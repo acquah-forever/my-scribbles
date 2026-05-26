@@ -75,7 +75,6 @@ const Project1 = () => {
     setSelectedJob(foundJob)
   }
 
-
   function handleClick() {
     if (open2) {
       setOpen2(false)
@@ -92,8 +91,6 @@ const Project1 = () => {
     }
   }
 
-
-
   if (isLoading) {
     return (
       <div className='flex justify-center items-center min-h-screen'>
@@ -109,9 +106,6 @@ const Project1 = () => {
       </div>
     )
   }
-
-
-
 
   return (
     <div id='/'>
@@ -245,21 +239,33 @@ const Project1 = () => {
         <div className='max-w-5xl w-full'>
           {selectedJob ? (
             <div>
-              <h1 className='text-3xl font-bold text-sky-500'>
-                {selectedJob.title}
-              </h1>
 
+              <h1 className='text-3xl font-bold text-sky-500'>{selectedJob.title}</h1>
               <p className='mt-2 text-lg'>{selectedJob.company}</p>
-
               <p>{selectedJob.location}</p>
-
-              <p className='font-semibold mt-2'>
-                {selectedJob.levelOfExperience}
-              </p>
+              <p className='font-semibold mt-2'>{selectedJob.levelOfExperience}</p>
+              <h1 className='mt-7 mb-7'>About the job</h1>
+              <div className='mt-5'><p>{selectedJob.description}</p></div>
+              <h1 className='mt-7 mb-7'>Core respnsibilities</h1>
 
               <div className='mt-5'>
-                <p>{selectedJob.description}</p>
+                <p>{selectedJob.coreResponsibilities.map((res, index) =>
+                  <div key={index}>
+                    <p>. {res}</p>
+                  </div>
+                )}</p>
               </div>
+
+              <h1 className='mt-7 mb-7'>Required Qualifications</h1>
+
+              <div className='mt-5'>
+              <p>{selectedJob.requiredQualifications.map((qual,index) => 
+              <div key={index}>
+                <p>. {qual}</p>
+              </div>
+              )}</p>
+              </div>
+
             </div>
 
           ) : (
