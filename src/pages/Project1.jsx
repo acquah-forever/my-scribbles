@@ -72,7 +72,7 @@ const Project1 = () => {
 
   function handleLink(id) {
     const foundJob = paginatedJobs.find((job) => job.id === id)
-    selectedJob(foundJob)
+    setSelectedJob(foundJob)
   }
 
 
@@ -92,10 +92,6 @@ const Project1 = () => {
     }
   }
 
-  function handleLink(index) {
-    const openLink = index === 0 ? null : index
-    setLink(openLink)
-  }
 
 
   if (isLoading) {
@@ -268,7 +264,7 @@ const Project1 = () => {
 
           ) : (
             <div className='flex justify-center items-center min-h-screen'>
-              <p>Select a job to view details</p>
+              <p className='text-2xl tracking-tight italic'>Select a job to view details</p>
             </div>
           )}
 
