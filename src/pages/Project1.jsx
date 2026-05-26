@@ -21,7 +21,7 @@ const Project1 = () => {
   const [open2, setOpen2] = useState(false);
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1)
-  const [link, setLink] = useState(false)
+  const [selectedJob, setSelectedJob] = useState(null)
 
   const jobsPerPage = 8
 
@@ -70,6 +70,12 @@ const Project1 = () => {
     setPage((prev) => Math.min(prev + 1, totalPages))
   }
 
+  function handleLink(id) {
+    const foundJob = paginatedJobs.find((job) => job.id === id)
+    selectedJob(foundJob)
+  }
+
+
   function handleClick() {
     if (open2) {
       setOpen2(false)
@@ -107,6 +113,7 @@ const Project1 = () => {
       </div>
     )
   }
+
 
 
 
@@ -237,14 +244,36 @@ const Project1 = () => {
             <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === totalPages ? "bg-gray-400" : "bg-black"} bg-black border-2 px-7 py-3 rounded-lg`} onClick={handleNext} disabled={page === totalPages}>Next Page</button>
           </div>
         </div>
-     
-
-          <div className='max-w-5xl w-full'>
 
 
-          </div>
+        <div className='max-w-5xl w-full'>
+          {selectedJob ? (
+            <div>
+              <h1 className='text-3xl font-bold text-sky-500'>
+                {selectedJob.title}
+              </h1>
 
-    
+              <p className='mt-2 text-lg'>{selectedJob.company}</p>
+
+              <p>{selectedJob.location}</p>
+
+              <p className='font-semibold mt-2'>
+                {selectedJob.levelOfExperience}
+              </p>
+
+              <div className='mt-5'>
+                <p>{selectedJob.description}</p>
+              </div>
+            </div>
+
+          ) : (
+            <p>Select a job to view details</p>
+          )}
+
+
+        </div>
+
+
 
       </div>
     </div >
