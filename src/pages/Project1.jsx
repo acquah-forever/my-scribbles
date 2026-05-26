@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
+import Error from '../components/Error'
+import { ClipLoader } from 'react-spinners'
 import { useQuery } from '@tanstack/react-query'
 import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown, X } from 'lucide-react'
-import { NavLink, Link } from 'react-router-dom'
+
+
+const BASE_API_URL = "http://localhost:3000"
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/jobs");
+  const res = await fetch(`${BASE_API_URL}/jobs`);
   if (!res.ok) {
     throw new Error("Network Issues");
   }
@@ -16,22 +20,60 @@ const Project1 = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
   const [page, setPage] = useState(1)
+  const [selectedJob, setSelectedJob] = useState(null)
 
-  const jobsPerPage = 5
+  const jobsPerPage = 8
 
-  const { data: jobs, isLoading, isError, error } = useQuery({
+  const { data: jobs, isLoading, isError } = useQuery({
     queryKey: ["jobs"],
     queryFn: getData,
     staleTime: 1000 * 5
   })
 
   function handleChange(e) {
-    const search = e.target.value
-    setQuery(search)
+    setQuery(e.target.value)
   }
 
+  useEffect(() => {
+    setPage(1)
+  }, [query])
+
+  const filteredJobs = useMemo(() => {
+
+    const lowerCase = query.toLowerCase()
+
+    if (!jobs) return []
+
+    if (query.trim() === "") return jobs
+
+    return jobs?.filter((item) =>
+      item.title.toLowerCase().includes(lowerCase) ||
+      item.company.toLowerCase().includes(lowerCase) ||
+      item.location.toLowerCase().includes(lowerCase) ||
+      item.levelOfExperience.toLowerCase().includes(lowerCase)
+    ) || []
+  }, [jobs, query])
+
+
+  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
+  const startIndex = (page - 1) * jobsPerPage
+  const endIndex = startIndex + jobsPerPage
+  const paginatedJobs = filteredJobs.slice(startIndex, endIndex)
+
+  function handlePrevious() {
+    setPage((prev) => Math.max(prev - 1, 1))
+
+  }
+
+  function handleNext() {
+    setPage((prev) => Math.min(prev + 1, totalPages))
+  }
+
+  function handleLink(id) {
+    const foundJob = paginatedJobs.find((job) => job.id === id)
+    setSelectedJob(foundJob)
+  }
 
   function handleClick() {
     if (open2) {
@@ -49,32 +91,24 @@ const Project1 = () => {
     }
   }
 
-  useEffect(() => {
-
-    const filteredJobs = jobs.filter((item) => {
-      return item.title.toLowerCase().includes(query.toLowerCase()) ||
-        item.company.toLowerCase().includes(query.toLowerCase()) ||
-        item.location.toLowerCase().includes(query.toLocaleLowerCase())
-    })
-    setResults(filteredJobs)
-  }, [query])
-
-  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
-  const startIndex = (page - 1) * jobsPerPage
-  const endIndex = startIndex + jobsPerPage
-  const paginatedJobs = filteredJobs.slice(startIndex, endIndex)
-
-  function handlePrevious() {
-    setPage(Math.max((prev) => prev(page - 1, 1)))
+  if (isLoading) {
+    return (
+      <div className='flex justify-center items-center min-h-screen'>
+        <ClipLoader color="#36d7b7" size={100} />
+      </div>
+    )
   }
 
-  function handleNext() {
-    setPage(Math.min((prev) => prev(page + 1, totalPages)))
+  if (isError) {
+    return (
+      <div className='flex flex-col justify-center items-center min-h-screen'>
+        <Error />
+      </div>
+    )
   }
-
 
   return (
-    <div>
+    <div id='/'>
       <div className='mt-3 flex items-center justify-between  px--7'>
 
         <div className='flex items-center space-x-5 px-3 py-1 rounded-full'>
@@ -92,7 +126,7 @@ const Project1 = () => {
           <BellDot />
         </div>
       </div>
-      <div className='flex space-x-4 text-lg mt-4 px-7'>
+      <div className='flex space-x-4 text-md mt-4 px-7'>
         <button className='border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300'>Remote</button>
 
         <div className='flex flex-col relative'>
@@ -176,36 +210,90 @@ const Project1 = () => {
 
       </div>
 
-      <div className='flex justify-between space-x-5 p-5 border border-slate-400 w-full mt-10'>
-        <div className='border border-slate-500 max-w-sm w-full'>
-          {isLoading && <p>Loading...</p>}
-          {isError && <p>Something went wrong{error.message}</p>}
-
-          {paginatedJobs?.length === 0 && !isLoading && query.length !== "" ? (
+      <div className='flex justify-between space-x-5  border border-slate-400 w-full mt-10'>
+        <div className='border-r border-r-slate-500 max-w-md w-full'>
+          {paginatedJobs?.length === 0 && !isLoading && query.trim() !== "" ? (
             <p>No Jobs Found</p>
           ) : (
             paginatedJobs.map((job) =>
-              <div className='mb-3 p-3' key={job.id}>
-                <h1>{job.title}</h1>
-                <h1>{job.company}</h1>
-                <h1>{job.location}</h1>
+              <div onClick={() => handleLink(job.id)} key={job.id}>
+                <div className='cursor-pointer mt-5 px-4 hover:scale-103 transition-all duration-200'>
+                  <h1 className='text-sky-500 font-semibold text-xl'>{job.title}</h1>
+                  <h1 className='text-md'>{job.company}</h1>
+                  <h1 className='text-md'>{job.location}</h1>
+                  <h1 className='text-md mt-1 mb-1 font-semibold '>{job.levelOfExperience}</h1>
+                  <div className='border w-full border-slate-500'></div>
+                </div>
               </div>
+
             )
           )}
 
-          <div>
-            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handlePrevious}>Previous Page</button>
-            <button className='bg-slate-600 px-4 py-2 rounded' onClick={handleNext}>Next P|age</button>
+          <div className='mt-10 mb-7 flex justify-center space-x-4'>
+            <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === 1 ? 'bg-gray-400' : 'bg-black'} px-4 py-3 border rounded`} onClick={handlePrevious} disabled={page === 1}>Previous Page</button>
+            <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === totalPages ? "bg-gray-400" : "bg-black"} bg-black border-2 px-7 py-3 rounded-lg`} onClick={handleNext} disabled={page === totalPages}>Next Page</button>
           </div>
         </div>
 
-        <div className='max-w-5xl w-full border'>
+
+        <div className='max-w-5xl w-full'>
+          {selectedJob ? (
+            <div>
+
+              <h1 className='text-3xl font-bold text-sky-500'>{selectedJob.title}</h1>
+              <p className='mt-2 text-lg'>{selectedJob.company}</p>
+              <p>{selectedJob.location}</p>
+              <p className='font-semibold mt-2'>{selectedJob.levelOfExperience}</p>
+              <h1 className='mt-7 mb-7'>About the job</h1>
+              <div className='mt-5'><p>{selectedJob.description}</p></div>
+              <h1 className='mt-7 mb-7'>Core respnsibilities</h1>
+
+              <div className='mt-5'>
+                <p>{selectedJob.coreResponsibilities.map((res, index) =>
+                  <div key={index}>
+                    <p>. {res}</p>
+                  </div>
+                )}</p>
+              </div>
+
+              <h1 className='mt-7 mb-7'>Required Qualifications</h1>
+
+              <div className='mt-5'>
+                <p>{selectedJob.requiredQualifications.map((qual, index) =>
+                  <div key={index}>
+                    <p>. {qual}</p>
+                  </div>
+                )}</p>
+              </div>
+
+              <h1 className='mt-7 mb-7'>Skills and competencies</h1>
+
+              <div className='mt-5'>
+                <p>{selectedJob.skillsAndCompetencies.map((comp, index) => 
+                <div key={index}>
+                  <p>. {comp}</p>
+                </div>
+                
+                )}</p>
+              </div>
+
+              <div>
+
+          ) : (
+            <div className='flex justify-center items-center min-h-screen'>
+              <p className='text-2xl tracking-tight italic'>Select a job to view details</p>
+            </div>
+          )}
+
 
         </div>
+
+
 
       </div>
     </div >
   )
 }
+
 
 export default Project1
