@@ -267,7 +267,9 @@ const Project1 = () => {
             </div>
 
           ) : (
-            <p>Select a job to view details</p>
+            <div className='flex justify-center items-center min-h-screen'>
+              <p>Select a job to view details</p>
+            </div>
           )}
 
 
