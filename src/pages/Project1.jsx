@@ -4,7 +4,7 @@ import { ClipLoader } from 'react-spinners'
 import { useQuery } from '@tanstack/react-query'
 import { Bolt, UserRound, Mail, BellDot, Search, House, ChevronDown, X } from 'lucide-react'
 
-const BASE_API_URL = "http://localhost:300"
+const BASE_API_URL = "http://localhost:3000"
 
 async function getData() {
   const res = await fetch(`${BASE_API_URL}/jobs`);
@@ -23,7 +23,7 @@ const Project1 = () => {
 
   const jobsPerPage = 8
 
-  const { data: jobs, isLoading, isError, error } = useQuery({
+  const { data: jobs, isLoading, isError} = useQuery({
     queryKey: ["jobs"],
     queryFn: getData,
     staleTime: 1000 * 5
@@ -104,7 +104,7 @@ const Project1 = () => {
 
 
   return (
-    <div>
+    <div id='/'>
       <div className='mt-3 flex items-center justify-between  px--7'>
 
         <div className='flex items-center space-x-5 px-3 py-1 rounded-full'>

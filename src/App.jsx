@@ -5,10 +5,12 @@ import Project2 from './pages/Project2'
 import Project3 from './pages/Project3'
 import Project4 from './pages/Project4'
 import SignUp from './pages/SignUp'
+import JobDetails from './pages/JobDetails'
 import Footer from './components/Footer'
 
 import { Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
 
 const queryClient = new QueryClient()
 
@@ -26,6 +28,7 @@ const App = () => {
               <Route path='/project3' element={<Project3 />} />
               <Route path='/project4' element={<Project4 />} />
               <Route path='/signup' element={<SignUp />} />
+              <Route path='jobdetails/:id' element={<JobDetails />} />
             </Routes>
           </QueryClientProvider>
         </main>
