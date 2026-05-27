@@ -23,6 +23,10 @@ const Project1 = () => {
   const [page, setPage] = useState(1)
   const [selectedJob, setSelectedJob] = useState(null)
 
+  // filter state
+  const [experienceFilter, setExperiencefilter] = useState("")
+  const [employmentFilter, setEmploymentFilter] = useState('')
+
   const jobsPerPage = 8
 
   const { data: jobs, isLoading, isError } = useQuery({
@@ -75,6 +79,16 @@ const Project1 = () => {
     setSelectedJob(foundJob)
   }
 
+  function handleExperienceChange(e){
+    setExperiencefilter(e.target.value)
+    setPage(1)
+  }
+
+  function handleEmploymentChange(e){
+    setEmploymentFilter(e.target.value)
+    setPage(1)
+  }
+
   function handleClick() {
     if (open2) {
       setOpen2(false)
@@ -90,6 +104,7 @@ const Project1 = () => {
       setOpen2((prev) => !prev)
     }
   }
+
 
   if (isLoading) {
     return (
@@ -136,22 +151,22 @@ const Project1 = () => {
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' type="radio" name='experience' value="entry-level" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange}type="radio" name='experience' value="entry-level" />&nbsp;
                     <p>Entry Level</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer h-6 w-6  accent-green-500' type="radio" name='experience' value="junior" />&nbsp;
+                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleExperienceChange}type="radio" name='experience' value="junior" />&nbsp;
                     <p>Junior</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' type="radio" name='experience' value="senior" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange}type="radio" name='experience' value="senior" />&nbsp;
                     <p>Senior</p>
                   </label>
 
                   <label className='flex items-centr'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' type="radio" name='experience' value="manager" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange}type="radio" name='experience' value="manager" />&nbsp;
                     <p>Manager</p>
                   </label>
                 </div>
@@ -175,22 +190,22 @@ const Project1 = () => {
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' type="radio" name='experience' value="part-time" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="part-time" />&nbsp;
                     <p>Part-Time</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer h-6 w-6  accent-green-500' type="radio" name='experience' value="full-time" />&nbsp;
+                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="full-time" />&nbsp;
                     <p>Full-Time</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' type="radio" name='experience' value="contract" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="contract" />&nbsp;
                     <p>Contract</p>
                   </label>
 
                   <label className='flex items-centr'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' type="radio" name='experience' value="volunteer" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="volunteer" />&nbsp;
                     <p>Volunteer</p>
                   </label>
                 </div>
