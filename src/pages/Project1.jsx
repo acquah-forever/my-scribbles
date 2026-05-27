@@ -76,8 +76,10 @@ const Project1 = () => {
     })
     }
 
+    return results || []
 
-  }, [jobs, query])
+
+  }, [jobs, query, experienceFilter, employmentFilter])
 
 
   const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
@@ -123,6 +125,10 @@ const Project1 = () => {
     } else {
       setOpen2((prev) => !prev)
     }
+  }
+
+  function handleExperience(){
+    setExperiencefilter(experienceFilter)
   }
 
 
@@ -195,7 +201,7 @@ const Project1 = () => {
 
                 <div className='flex justify-end gap-3'>
                   <button className='cursor-pointer border-3 text-md px-4 py-1 rounded-full' onClick={() => setOpen(false)}>Reset</button>
-                  <button className='cursor-pointer bg-sky-500 text-md px-4 py-1 rounded-full' onClick={() => setOpen(false)}>Show Results</button>
+                  <button className='cursor-pointer bg-sky-500 text-md px-4 py-1 rounded-full' onClick={handleExperience}>Show Results</button>
                 </div>
               </div>
             </div>
