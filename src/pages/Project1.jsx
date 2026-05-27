@@ -238,7 +238,6 @@ const Project1 = () => {
         <div className='max-w-5xl w-full'>
           {selectedJob &&
             <div>
-
               <h1 className='text-3xl font-bold text-sky-500'>{selectedJob.title}</h1>
               <p className='mt-2 text-lg'>{selectedJob.company}</p>
               <p>{selectedJob.location}</p>
