@@ -50,13 +50,33 @@ const Project1 = () => {
     if (!jobs) return []
 
     if (query.trim() === "") return jobs
-
-    return jobs?.filter((item) =>
+    
+    // let instead of const as results will be asssigned
+    // differently for search filters
+    let results = jobs.filter((item) =>
       item.title.toLowerCase().includes(lowerCase) ||
       item.company.toLowerCase().includes(lowerCase) ||
       item.location.toLowerCase().includes(lowerCase) ||
-      item.levelOfExperience.toLowerCase().includes(lowerCase)
-    ) || []
+      (item.levelOfExperience || '').toString().toLowerCase().includes(lowerCase)
+    )
+
+    const normalize = (s = '') => s.toString().replace(/-/g, '').toLowerCase()
+
+    if (experienceFilter) {
+      const normalFormat = normalize(experienceLevel)
+      results = results.filter((item) => normalize(item.levelOfExperience).includes(normalFormat))
+    }
+
+    if (employmentFilter) {
+      const normalFormat = normalize(employmentFilter)
+      results = results.filter((item) => {
+      //different API's may store the same concept under different names 
+      const employmentParameters = (item.employmentType || item.employment || item.type || '').toString()
+      return normalize(employmentParameters).includes(normalFormat)
+    })
+    }
+
+
   }, [jobs, query])
 
 
@@ -190,22 +210,22 @@ const Project1 = () => {
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="part-time" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange}type="radio" name='experience' value="part-time" />&nbsp;
                     <p>Part-Time</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="full-time" />&nbsp;
+                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleEmploymentChange}type="radio" name='experience' value="full-time" />&nbsp;
                     <p>Full-Time</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="contract" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange}type="radio" name='experience' value="contract" />&nbsp;
                     <p>Contract</p>
                   </label>
 
                   <label className='flex items-centr'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleemploymentChange}type="radio" name='experience' value="volunteer" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange}type="radio" name='experience' value="volunteer" />&nbsp;
                     <p>Volunteer</p>
                   </label>
                 </div>
