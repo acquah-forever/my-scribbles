@@ -21,6 +21,8 @@ const Project1 = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [query, setQuery] = useState('');
+  const [experienceCheck, setExperienceCheck] = useState('')
+  const [employmentCheck, setEmploymentCheck] = useState()
   const [page, setPage] = useState(1)
   const [selectedJob, setSelectedJob] = useState(null)
 
@@ -140,6 +142,12 @@ const Project1 = () => {
     setOpen2((prev) => !prev)
   }
 
+  function handleExpereinceCheck(){
+    setExperienceCheck('')
+    setPage(1)
+  
+  }
+
 
   if (isLoading) {
     return (
@@ -182,34 +190,34 @@ const Project1 = () => {
         <div className='flex flex-col relative'>
           <button className='flex items-center gap-3 border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300' onClick={handleClick}>Experience Level <ChevronDown size={18} /></button>
           {open &&
-            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-full max-h-72 z-10 overflow-auto' >
+            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-full max-h-75 z-10 overflow-auto' >
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="entry-level" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="entry-level" checked={experienceCheck === 'entry-level'} />&nbsp;
                     <p>Entry Level</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="junior" />&nbsp;
+                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="junior" checked={experienceCheck === 'junior'} />&nbsp;
                     <p>Junior</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="senior" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="senior" checked={experienceCheck === 'senior'} />&nbsp;
                     <p>Senior</p>
                   </label>
 
                   <label className='flex items-centr'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="manager" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="manager" checked={experienceCheck === 'manager'} />&nbsp;
                     <p>Manager</p>
                   </label>
                 </div>
 
                 <div className='border w-full border-slate-500'></div>
 
-                <div className='flex justify-end gap-3'>
-                  <button className='cursor-pointer border text-md px-4 py-1 rounded-full' onClick={() => setOpen(false)}>Reset</button>
+                <div className='flex flex-col justify-end gap-3'>
+                  <button className='cursor-pointer border text-md px-4 py-1 rounded-full' onClick={handleExpereinceCheck}>Reset</button>
                   <button className='cursor-pointer bg-sky-500 text-md px-4 py-1 rounded-full' onClick={handleExperience}>Show Results</button>
                 </div>
               </div>
@@ -221,7 +229,7 @@ const Project1 = () => {
           <button className='flex items-center gap-3 border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300' onClick={handleClick2}>Employment Type <ChevronDown size={18} /></button>
 
           {open2 &&
-            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-full max-h-72 z-10'>
+            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-full max-h-75 z-10'>
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
@@ -248,7 +256,7 @@ const Project1 = () => {
                 <div className='border w-full border-slate-500'></div>
 
 
-                <div className='flex  justify-end gap-3'>
+                <div className='flex flex-col justify-end gap-3'>
                   <button className='cursor-pointer border text-md px-4 py-1 rounded-full' onClick={() => setOpen2(false)}>Reset</button>
                   <button className='cursor-pointer bg-sky-500 text-md px-4 py-1 rounded-full' onClick={handleExperience2}>Show Results</button>
                 </div>
