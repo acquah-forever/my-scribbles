@@ -17,7 +17,7 @@ async function getData() {
 }
 
 const Project1 = () => {
-  
+
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [query, setQuery] = useState('');
@@ -74,7 +74,8 @@ const Project1 = () => {
 
     }
 
-    const normalize = (s = '') => s.toString().replace(/-/g, '').toLowerCase()
+    // javascript
+    const normalize = (s) => String(s || '').replace(/-/g, '').toLowerCase()
 
     if (experienceFilter) {
       const normalFormat = normalize(experienceFilter)
@@ -280,6 +281,9 @@ const Project1 = () => {
         <div className='mt-10 mb-7 flex justify-center space-x-4'>
           <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === 1 ? 'bg-gray-400' : 'bg-black'} px-4 py-3 border rounded`} onClick={handlePrevious} disabled={page === 1}>Previous Page</button>
           <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === totalPages ? "bg-gray-400" : "bg-black"} bg-black border-2 px-7 py-3 rounded-lg`} onClick={handleNext} disabled={page === totalPages}>Next Page</button>
+        </div>
+        <div className='flex justify-center items-center mb-5'>
+          <button className='cursor-pointer bg-linear-to-br from-green-400 to-green-700 px-5 py-4 rounded'onClick={()=>setPage(1)}>Back To Page 1</button>
         </div>
       </div>
 
