@@ -177,7 +177,7 @@ const Project1 = () => {
         </div>
       </div>
       <div className='flex space-x-4 text-md mt-4 px-7'>
-        <button className='border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300'>Remote</button>
+   
 
         <div className='flex flex-col relative'>
           <button className='flex items-center gap-3 border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300' onClick={handleClick}>Experience Level <ChevronDown size={18} /></button>
@@ -260,13 +260,15 @@ const Project1 = () => {
 
       </div>
 
-      <div className='flex justify-between space-x-5  border border-slate-400 w-full mt-10'><div className='border-r border-r-slate-500 max-w-md w-full'>
+      <div className='flex justify-between space-x-5  border border-slate-400 w-full mt-10'>
+        <div className='border-r border-r-slate-500 max-w-md w-full'>
+
         {paginatedJobs?.length === 0 && !isLoading ? (
           <p>No Jobs Found</p>
         ) : (
           paginatedJobs.map((job) =>
             <div onClick={() => handleLink(job.id)} key={job.id}>
-              <div className='cursor-pointer mt-5 px-4 hover:scale-103 transition-all duration-200'>
+              <div className='cursor-pointer mt-5 px-5 hover:scale-103 transition-all duration-200'>
                 <h1 className='text-sky-500 font-semibold text-xl'>{job.title}</h1>
                 <h1 className='text-md'>{job.company}</h1>
                 <h1 className='text-md'>{job.location}</h1>
@@ -286,7 +288,7 @@ const Project1 = () => {
 
         <div className='max-w-5xl w-full'>
           {selectedJob &&
-            <div>
+            <div className='mt-5 pr-10'>
               <h1 className='text-3xl font-bold text-sky-500'>{selectedJob.title}</h1>
               <p className='mt-2 text-lg'>{selectedJob.company}</p>
               <p>{selectedJob.location}</p>

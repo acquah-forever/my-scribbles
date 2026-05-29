@@ -1,12 +1,29 @@
-const [link, setLink] = useState(false)
+const filteredJobs = useMemo(() => {
+    if(!jobs) return []
+    
+    let results = results
 
-function handleClick(index){
-    const openLink = if(index === 0 ? null : index)
-    setLink(openLink)
-}
+    if(query.trim()) !== ""{
+        results = results.filter((item) => 
+        item.name.toLowerCase().includes(query.toLowerCase()) ||
+        item.location.toLowerCase().includes(query.toLowerCase())
+        )
 
-<button onClick={() => handleClick(job.id)}>
+        const normalize = (s,"") => toString().replace(/-/g , "").toLowerCase()
 
-</button>
+        if(natureOfName){
+            const newFormat = normalize(natureOfName)
+            const results = results.filter((item) => normalize(item.modeOfName).includes(newFormat))
+        }
 
-{link === job.id && }
+        if(modeOfTravel){
+            const newFormat2 = normalize(modeOfTravel)
+            const results = results.filter((item) => {
+                const newParameters = (item.transportationType || modeOfTransportation || transportation || "").toString()
+                normalize(newParameters).includes(newFormat2))
+            })
+        }
+
+        return results || []
+    },[query,natuerOfName, modeOfTravel, results]
+})
