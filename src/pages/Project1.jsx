@@ -21,12 +21,8 @@ const Project1 = () => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [query, setQuery] = useState('');
-  const [experienceCheck, setExperienceCheck] = useState('')
-  const [employmentCheck, setEmploymentCheck] = useState()
   const [page, setPage] = useState(1)
   const [selectedJob, setSelectedJob] = useState(null)
-
-  // filter state
   const [experienceFilter, setExperiencefilter] = useState("")
   const [employmentFilter, setEmploymentFilter] = useState('')
 
@@ -148,6 +144,16 @@ const Project1 = () => {
   
   }
 
+  function handleExpereinceCheck(){
+    setExperiencefilter('')
+    setPage(1)
+  }
+
+  function handleEmploymentCheck(){
+    setEmploymentFilter('')
+    setPage(1)
+  }
+
 
   if (isLoading) {
     return (
@@ -194,22 +200,22 @@ const Project1 = () => {
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="entry-level" checked={experienceCheck === 'entry-level'} />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="entry-level" checked={experienceFilter === 'entry-level'} />&nbsp;
                     <p>Entry Level</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="junior" checked={experienceCheck === 'junior'} />&nbsp;
+                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="junior" checked={experienceFilter === 'junior'} />&nbsp;
                     <p>Junior</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="senior" checked={experienceCheck === 'senior'} />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="senior" checked={experienceFilter === 'senior'} />&nbsp;
                     <p>Senior</p>
                   </label>
 
                   <label className='flex items-centr'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="manager" checked={experienceCheck === 'manager'} />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleExperienceChange} type="radio" name='experience' value="manager" checked={experienceFilter === 'manager'} />&nbsp;
                     <p>Manager</p>
                   </label>
                 </div>
@@ -233,22 +239,22 @@ const Project1 = () => {
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="part-time" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="part-time" checked={employmentFilter === 'part-time'} />&nbsp;
                     <p>Part-Time</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="full-time" />&nbsp;
+                    <input className='cursor-pointer h-6 w-6  accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="full-time" checked={employmentFilter === 'full-time'} />&nbsp;
                     <p>Full-Time</p>
                   </label>
 
                   <label className='flex items-center'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="contract" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="contract" checked={employmentFilter === 'contract'} />&nbsp;
                     <p>Contract</p>
                   </label>
 
                   <label className='flex items-centr'>
-                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="volunteer" />&nbsp;
+                    <input className='cursor-pointer w-6 h-6 accent-green-500' onChange={handleEmploymentChange} type="radio" name='employment' value="volunteer" checked={employmentFilter === 'volunteer'} />&nbsp;
                     <p>Volunteer</p>
                   </label>
                 </div>
@@ -257,7 +263,7 @@ const Project1 = () => {
 
 
                 <div className='flex flex-col justify-end gap-3'>
-                  <button className='cursor-pointer border text-md px-4 py-1 rounded-full' onClick={() => setOpen2(false)}>Reset</button>
+                  <button className='cursor-pointer border text-md px-4 py-1 rounded-full' onClick={handleEmploymentCheck}>Reset</button>
                   <button className='cursor-pointer bg-sky-500 text-md px-4 py-1 rounded-full' onClick={handleExperience2}>Show Results</button>
                 </div>
               </div>
