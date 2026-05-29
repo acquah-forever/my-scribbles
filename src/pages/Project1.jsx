@@ -140,6 +140,13 @@ const Project1 = () => {
     setOpen2((prev) => !prev)
   }
 
+  function handleHome(){
+    setPage(1)
+    setSelectedJob(null)
+    setOpen(false)
+    setOpen2(false)
+  }
+
 
   if (isLoading) {
     return (
@@ -283,10 +290,9 @@ const Project1 = () => {
           <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === totalPages ? "bg-gray-400" : "bg-black"} bg-black border-2 px-7 py-3 rounded-lg`} onClick={handleNext} disabled={page === totalPages}>Next Page</button>
         </div>
         <div className='flex justify-center items-center mb-5'>
-          <button className='cursor-pointer bg-linear-to-br from-green-400 to-green-700 px-5 py-4 rounded'onClick={()=>setPage(1)}>Back To Page 1</button>
+          <button className='cursor-pointer bg-linear-to-br from-green-400 to-green-700 px-5 py-4 rounded' onClick={handleHome}>Back To Page 1</button>
         </div>
       </div>
-
 
         <div className='max-w-5xl w-full'>
           {selectedJob &&
@@ -295,38 +301,40 @@ const Project1 = () => {
               <p className='mt-2 text-lg'>{selectedJob.company}</p>
               <p>{selectedJob.location}</p>
               <p className='font-semibold mt-2'>{selectedJob.levelOfExperience}</p>
+
               <h1 className='mt-7 mb-7'>About the job</h1>
               <div className='mt-5'><p>{selectedJob.description}</p></div>
-              <h1 className='mt-7 mb-7'>Core respnsibilities</h1>
 
+              <h1 className='mt-7 mb-7'>Core responsibilities</h1>
               <div className='mt-5'>
-                <p>{selectedJob.coreResponsibilities.map((res, index) =>
-                  <div key={index}>
-                    <p>. {res}</p>
-                  </div>
-                )}</p>
+                <ul className='list-disc pl-6'>
+                  {(selectedJob.coreResponsibilities || []).map((res, index) =>
+                    <li key={index} className='mb-2'>{res}</li>
+                  )}
+                </ul>
               </div>
 
               <h1 className='mt-7 mb-7'>Required Qualifications</h1>
-
               <div className='mt-5'>
-                <p>{selectedJob.requiredQualifications.map((qual, index) =>
-                  <div key={index}>
-                    <p>. {qual}</p>
-                  </div>
-                )}</p>
+                <ul className='list-disc pl-6'>
+                  {(selectedJob.requiredQualifications || []).map((qual, index) =>
+                    <li key={index} className='mb-2'>{qual}</li>
+                  )}
+                </ul>
               </div>
 
               <h1 className='mt-7 mb-7'>Skills and competencies</h1>
-
               <div className='mt-5'>
-                <p>{selectedJob.skillsAndCompetencies.map((comp, index) =>
-                  <div key={index}>
-                    <p>. {comp}</p>
-                  </div>)}</p>
+                <ul className='list-disc pl-6'>
+                  {(selectedJob.skillsAndCompetencies || []).map((comp, index) =>
+                    <li key={index} className='mb-2'>{comp}</li>
+                  )}
+                </ul>
               </div>
-            </div>}
+            </div>
+            }
         </div>
+
       </div>
     </div >
   )
