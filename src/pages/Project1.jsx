@@ -112,7 +112,7 @@ const Project1 = () => {
   }
 
   function handleLink(id) {
-    const foundJob = paginatedJobs.find((job) => job.id === id)
+    const foundJob = filteredJobs.find((job) => job.id === id)
     setSelectedJob(foundJob)
   }
 
@@ -140,13 +140,6 @@ const Project1 = () => {
     setOpen2((prev) => !prev)
   }
 
-  function handleHome(){
-    setPage(1)
-    setSelectedJob(null)
-    setOpen(false)
-    setOpen2(false)
-  }
-
 
   if (isLoading) {
     return (
@@ -166,13 +159,13 @@ const Project1 = () => {
 
   return (
     <div id='/'>
-      <div className='mt-3 flex items-center justify-between  px--7'>
+      <div className='mt-3 flex items-center justify-between  px-7'>
 
         <div className='flex items-center space-x-5 px-3 py-1 rounded-full'>
           <Bolt size={35} />
           <div className='flex items-center border rounded-full px-6 '>
             <Search size={18} />
-            <input className=' px-5 py-2 rounded-full w-100 placeholder:italic focus:outline-0 focus:border-0' type="text" placeholder='Describe the job you want' value={query} onChange={handleChange} />
+            <input className=' px-5 py-2 rounded-full w-full placeholder:italic focus:outline-0 focus:border-0' type="text" placeholder='Describe the job you want' value={query} onChange={handleChange} />
           </div>
         </div>
 
@@ -189,7 +182,7 @@ const Project1 = () => {
         <div className='flex flex-col relative'>
           <button className='flex items-center gap-3 border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300' onClick={handleClick}>Experience Level <ChevronDown size={18} /></button>
           {open &&
-            <div className='absolute  top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-100 h-70 z-10' >
+            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-full max-h-72 z-10 overflow-auto' >
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
@@ -216,7 +209,7 @@ const Project1 = () => {
                 <div className='border w-full border-slate-500'></div>
 
                 <div className='flex justify-end gap-3'>
-                  <button className='cursor-pointer border-3 text-md px-4 py-1 rounded-full' onClick={() => setOpen(false)}>Reset</button>
+                  <button className='cursor-pointer border text-md px-4 py-1 rounded-full' onClick={() => setOpen(false)}>Reset</button>
                   <button className='cursor-pointer bg-sky-500 text-md px-4 py-1 rounded-full' onClick={handleExperience}>Show Results</button>
                 </div>
               </div>
@@ -228,7 +221,7 @@ const Project1 = () => {
           <button className='flex items-center gap-3 border border-slate-400 px-4 py-1 rounded-full cursor-pointer hover:bg-slate-600 hover:scale-105 transition-all duration-300' onClick={handleClick2}>Employment Type <ChevronDown size={18} /></button>
 
           {open2 &&
-            <div className='absolute  top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-100 h-70 z-10'>
+            <div className='absolute top-full left-0 mt-2 bg-slate-600 rounded shadow-lg w-full max-h-72 z-10'>
               <div className='p-5 space-y-5'>
                 <div className='flex flex-col space-y-4 '>
                   <label className='flex items-center'>
@@ -256,7 +249,7 @@ const Project1 = () => {
 
 
                 <div className='flex  justify-end gap-3'>
-                  <button className='cursor-pointer border-3 text-md px-4 py-1 rounded-full' onClick={() => setOpen2(false)}>Reset</button>
+                  <button className='cursor-pointer border text-md px-4 py-1 rounded-full' onClick={() => setOpen2(false)}>Reset</button>
                   <button className='cursor-pointer bg-sky-500 text-md px-4 py-1 rounded-full' onClick={handleExperience2}>Show Results</button>
                 </div>
               </div>
@@ -288,9 +281,6 @@ const Project1 = () => {
         <div className='mt-10 mb-7 flex justify-center space-x-4'>
           <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === 1 ? 'bg-gray-400' : 'bg-black'} px-4 py-3 border rounded`} onClick={handlePrevious} disabled={page === 1}>Previous Page</button>
           <button className={`hover:scale-105 transition-all duration-200 cursor-pointer ${page === totalPages ? "bg-gray-400" : "bg-black"} bg-black border-2 px-7 py-3 rounded-lg`} onClick={handleNext} disabled={page === totalPages}>Next Page</button>
-        </div>
-        <div className='flex justify-center items-center mb-5'>
-          <button className='cursor-pointer bg-linear-to-br from-green-400 to-green-700 px-5 py-4 rounded' onClick={handleHome}>Back To Page 1</button>
         </div>
       </div>
 
